@@ -1,0 +1,15 @@
+
+CRUD
+GET - pega uma info
+POST - cria uma info
+PUT - altera toda a info
+PATH - altera uma parte da info
+DELETE - deleta uma info
+
+app.get
+
+Name - e o identificador da rota
+app.get("/home")
+
+function (callback) - execultar algum comando
+app.get("/home", (req, res) => {}) 
