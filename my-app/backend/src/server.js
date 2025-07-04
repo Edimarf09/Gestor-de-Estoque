@@ -1,5 +1,3 @@
-// backend/src/server.js
-
 import express from 'express'
 import app from './app.js'
 import { PrismaClient } from '@prisma/client'
