@@ -3,6 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    return render(request, 'home/home.html', context={
+    return render(request, 'home/pages/home.html', context={
         'name': 'jorge rabetão'
     })

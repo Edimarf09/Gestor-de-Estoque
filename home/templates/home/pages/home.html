@@ -1,0 +1,35 @@
+{% include "home/partials/head.html" %}
+
+<body>
+  <div class="container">
+    {% include "home/partials/menu.html" %}
+
+    <main class="content">
+      <button class="menu-toggle">&#9776;</button>
+      <header>
+        <h1>Dashboard</h1>
+      </header>
+      <section>
+        <div class="cards">
+          <div class="card">Total de Itens<br><strong>1423</strong></div>
+          <div class="card">Saida de Itens<br><strong>234</strong></div>
+          <div class="card">Baixo Estoque<br><strong>12</strong></div>
+          <div class="card">Sem Estoque<br><strong>5</strong></div>
+          <div class="card">Valor do Estoque (gráfico)</div>
+          <div class="card">Produtos mais utilizados (barras)</div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
+
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const sidebar = document.querySelector('.sidebar');
+
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+</script>
