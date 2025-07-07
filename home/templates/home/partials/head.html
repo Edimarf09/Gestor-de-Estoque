@@ -26,7 +26,7 @@
 
         body {
             font-size: 1.6rem;
-            background-color: #f9f9f9;
+            background-color: #eef9ff;
         }
 
         .container {
@@ -34,14 +34,28 @@
             min-height: 100vh;
         }
 
-        /* === SIDEBAR === */
+        /* === SIDEBAR com liquid glass e faixa verde === */
         .sidebar {
+            position: relative;
             width: 240px;
-            background-color: #0b385e;
+            /* glass effect */
+            background: rgba(10, 61, 100, 1);
+            /* arredonda só cantos superior e inferior direitos */
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+
+            /* garante que os cantos esquerdos não fiquem arredondados */
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6.4px);
+            -webkit-backdrop-filter: blur(6.4px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            /* faixa verde */
+            border-right: 9px solid #86cd41;
             color: white;
             height: 100vh;
             padding: 5px;
-            border-right: 9px solid #86cd41;
             flex-shrink: 0;
             transition: all 0.3s ease;
         }
@@ -61,19 +75,24 @@
 
         .sidebar a {
             display: block;
-            background-color: #11558d;
+            /* glass effect nos links */
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6.4px);
+            -webkit-backdrop-filter: blur(6.4px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             color: white;
             padding: 10px 16px;
             margin-bottom: 10px;
-            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
+            transition: background 0.3s ease, transform 0.1s ease;
         }
 
         .sidebar a:hover {
-            background-color: #166aaf;
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
         }
 
         .menu-toggle {
@@ -85,11 +104,17 @@
             margin-bottom: 20px;
         }
 
-        /* === CONTEÚDO === */
+        /* === CONTEÚDO com liquid glass === */
         .content {
             flex: 1;
             padding: 40px;
-            background-color: #e5f9e0;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6.4px);
+            -webkit-backdrop-filter: blur(6.4px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            margin: 20px;
         }
 
         header h1 {
@@ -97,7 +122,7 @@
             margin-bottom: 24px;
         }
 
-        /* === CARDS === */
+        /* === CARDS com liquid glass aprimorado === */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -105,11 +130,20 @@
         }
 
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6.4px);
+            -webkit-backdrop-filter: blur(6.4px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             font-size: 1.6rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.12);
         }
 
         .card:nth-child(5),
@@ -120,8 +154,6 @@
         /* ============================= */
         /*        RESPONSIVIDADE        */
         /* ============================= */
-
-        /* Mobile: mostrar botão e esconder sidebar */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -133,7 +165,6 @@
                 left: -100%;
                 width: 240px;
                 height: 100vh;
-                background-color: #0b385e;
                 transition: left 0.3s ease;
                 z-index: 1000;
                 padding-top: 20px;
@@ -149,6 +180,7 @@
 
             .content {
                 padding: 20px;
+                margin: 20px 0;
             }
 
             .cards {
