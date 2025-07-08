@@ -1,10 +1,12 @@
+{% load static %}
+
 <aside class="sidebar">
-    <img src="" alt="Logo Porta On" class="logo-svg">
-    <h2 class="logo">Porta On</h2>
+    <img src="{% static "/imgs/logo1.png" %}" class="logo-png">
+    <button class="menu-back">&#8592;</button>
     <nav>
         <ul>
-            <li><a href="/"><span>Dashboard</span></a></li>
-            <li><a href="/"><span>Produtos</span></a></li>
+            <li><a href="/dashboard"><span>Dashboard</span></a></li>
+            <li><a href="/produtos"><span>Produtos</span></a></li>
             <li><a href="/"><span>Categorias</span></a></li>
             <li><a href="/"><span>Relatórios</span></a></li>
             <li><a href="/"><span>Configurações</span></a></li>

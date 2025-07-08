@@ -1,3 +1,4 @@
+{% load static %}
 {% include "home/partials/head.html" %}
 
 <body>
@@ -26,71 +27,4 @@
 
 </html>
 
-<script>
-  const toggleBtn = document.querySelector('.menu-toggle');
-  const sidebar = document.querySelector('.sidebar');
-
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-  });
-
-  const input     = document.getElementById('search');
-  const container = document.querySelector('.cards');
-
-  input.addEventListener('input', () => {
-    const termo = input.value.trim().toLowerCase();
-    const cards = Array.from(container.children);
-
-    // 1) FIRST: posições iniciais
-    const firstRects = cards.map(c => c.getBoundingClientRect());
-    // pega a primeira posição não-zero
-    const baseRect = firstRects.find(r => r.width > 0 && r.height > 0) 
-                   || { left: 0, top: 0 };
-
-    // 2) filtrar + fade-out / fade-in
-    cards.forEach(card => {
-      const match = card.textContent.toLowerCase().includes(termo);
-      if (!match) {
-        card.classList.add('fade-out');
-      } else {
-        card.classList.remove('hidden', 'fade-out');
-      }
-    });
-
-    // 3) após o fade-out, esconder e preparar o FLIP
-    setTimeout(() => {
-      // oculta de vez quem teve fade-out
-      cards.forEach(card => {
-        if (card.classList.contains('fade-out')) {
-          card.classList.add('hidden');
-        }
-      });
-
-      // LAST: novas posições
-      const lastRects = cards.map(c => c.getBoundingClientRect());
-
-      // INVERT: aplica deslocamento inicial
-      cards.forEach((card, i) => {
-        // se firstRects[i] for zero, usa baseRect
-        const fr = (firstRects[i].width > 0 && firstRects[i].height > 0)
-                   ? firstRects[i]
-                   : baseRect;
-        const lr = lastRects[i];
-        const dx = fr.left - lr.left;
-        const dy = fr.top  - lr.top;
-
-        card.style.transform = `translate(${dx}px, ${dy}px)`;
-        // sem transição pra “posicionar” instantâneo
-        card.style.transition = 'transform 0s';
-      });
-
-      // PLAY: anima até transform: none
-      requestAnimationFrame(() => {
-        cards.forEach(card => {
-          card.style.transition = 'transform 0.3s ease';
-          card.style.transform  = '';
-        });
-      });
-    }, 150); // igual ao tempo do fade-out (0.15s)
-  });
-</script>
+<script src="{% static "/home/js/home.js" %}"></script>
