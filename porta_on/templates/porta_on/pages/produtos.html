@@ -1,19 +1,20 @@
 {% load static %}
-{% include "produtos/partials/head.html" %}
+{% include "porta_on/partials/produtos_head.html" %}
 
 <body>
   <div class="container">
-    {% include "includes/menu.html" %}
+    
+    {% include "includes/menu.html" with logo_path="porta_on/imgs/logo1.png" %}
 
     <main class="content">
       <button class="menu-toggle">&#9776;</button>
       <header>
         <h1>Produtos</h1>
-        {% include "produtos/partials/research.html" %}
+        {% include "porta_on/partials/research.html" %}
       </header>
       <section>
         <a href="#novoProdutoModal" class="btn-novo-produto">Novo Produto</a>
-        {% include "produtos/partials/tabela.html" %}
+        {% include "porta_on/partials/tabela.html" %}
       </section>
     </main>
   </div>

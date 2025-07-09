@@ -1,15 +1,16 @@
 {% load static %}
-{% include "home/partials/head.html" %}
+{% include "porta_on/partials/dashboard_head.html" %}
 
 <body>
   <div class="container">
-    {% include "includes/menu.html" %}
+
+    {% include "includes/menu.html" with logo_path="porta_on/imgs/logo1.png" %}
 
     <main class="content">
       <button class="menu-toggle">&#9776;</button>
       <header>
         <h1>Dashboard</h1>
-        {% include "home/partials/research.html" %}
+        {% include "porta_on/partials/research.html" %}
       </header>
       <section>
         <div class="cards">
@@ -27,4 +28,4 @@
 
 </html>
 
-<script src="{% static "/home/js/home.js" %}"></script>
+<script src="{% static "/porta_on/js/dashboard.js" %}"></script>

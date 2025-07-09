@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login – Gestor de Estoque</title>
+  <link rel="stylesheet" href="{% static 'welcome/css/style.css' %}">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-box">
+      <img src="{% static "welcome/imgs/logo.png" %}" alt="" class="logo-site">
+      <form method="post">
+        <div>
+          <input
+            type="text"
+            name="username"
+            placeholder="Usuário"
+            value=""
+            required
+          >
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Senha"
+            required
+          >
+        </div>
+        <button type="submit">Entrar</button>
+      </form>
+      <p style="margin-top:1rem;">
+        <a href="" style="color:#0b385e;">
+          Esqueci minha senha
+        </a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
