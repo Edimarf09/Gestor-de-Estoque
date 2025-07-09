@@ -1,8 +1,10 @@
 {% load static %}
 
 <aside class="sidebar">
-    <img src="{% static "/imgs/logo1.png" %}" class="logo-png">
-    <button class="menu-back">&#8592;</button>
+    <div class="img-btn-container">
+        <img src="{% static "/imgs/logo1.png" %}" class="logo-png">
+        <button class="menu-back">&#8592;</button>
+    </div>
     <nav>
         <ul>
             <li><a href="/dashboard"><span>Dashboard</span></a></li>
@@ -12,12 +14,13 @@
             <li><a href="/"><span>Configurações</span></a></li>
         </ul>
     </nav>
+    <hr class="divison-menu-line">
     <nav class="usuario">
         <ul>
-            <img src="https://avatars.githubusercontent.com/u/56691911?v=4" width="50" height="50" alt="">
-            <li><span>Pedro</span></li>
-            <li><a href="/"><span>Config</span></a></li>
-            <li><a href="/"><span>Sair</span></a></li>
+            <img src="https://avatars.githubusercontent.com/u/56691911?v=4">
+            <li><p><span>Pedro</span></p></li>
+            <li><button><span>Config</span></button></li>
+            <li><button><span>Sair</span></button></li>
         </ul>
     </nav>
 </aside>
