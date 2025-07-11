@@ -1,4 +1,8 @@
-{% extends "porta_on/partials/head.html" %}
+{% extends "porta_on/partials/base_head.html" %}
 {% load static %}
 
-{% block  %}{% endblock  %}
+{% block title %}Produtos | Porta On{% endblock  %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static "porta_on/css/produtos.css" %}">
+{% endblock %}
